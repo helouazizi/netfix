@@ -25,15 +25,15 @@ def login(request):
 
 
 def register(request):
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Your account has been created successfully!')
-            return redirect('login')  # Redirect to login page after successful registration
-        else:
-            messages.error(request, 'Please correct the error below.')
-    else:
-        form = UserCreationForm()
+    # if request.method == 'POST':
+    #     form = UserCreationForm(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #         messages.success(request, 'Your account has been created successfully!')
+    #         return redirect('login')  # Redirect to login page after successful registration
+    #     else:
+    #         messages.error(request, 'Please correct the error below.')
+    # else:
+    #     form = UserCreationForm()
     
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'users/register.html')

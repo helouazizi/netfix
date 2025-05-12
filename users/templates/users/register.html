@@ -1,23 +1,22 @@
 {% extends 'main/base.html' %}
 {% load static %}
 
-{% block title %}Register{% endblock %}
-
 {% block content %}
-    <div class="login-page">
-        <h2>Register</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}  <!-- This will render the form fields -->
-            <button type="submit">Register</button>
-        </form>
-
-        {% if messages %}
-            <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
+<div class="register-choice">
+    <h2>Register As:</h2>
+    <div class="choice-cards">
+        <a href="#" class="choice-card">
+            <!-- <img src="{% static 'main/images/customer-icon.png' %}" alt="Customer"> -->
+            <i class="fas fa-user fa-3x"></i>
+            <h3>Customer</h3>
+            <p>Shop, browse, and manage your purchases easily.</p>
+        </a>
+        <a href="#" class="choice-card">
+            <!-- <img src="{% static 'main/images/company-icon.png' %}" alt="Company"> -->
+            <i class="fas fa-building fa-3x"></i>
+            <h3>Company</h3>
+            <p>Register your company and start offering your services.</p>
+        </a>
     </div>
+</div>
 {% endblock %}

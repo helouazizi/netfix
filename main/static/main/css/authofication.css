@@ -21,6 +21,48 @@
     padding-left: 20px;
     list-style-type: none;
   }
+
+
+
+  /* ====================================================================== */
+
+  .register-choice {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+  }
+  
+  .choice-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  .choice-card {
+    background-color: var(--white-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: inherit;
+    width: 250px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .choice-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .choice-card img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+  
   
   
   @media (max-width: 480px) {
