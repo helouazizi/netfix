@@ -1,0 +1,74 @@
+@import url("header.css");
+@import url("authofication.css");
+@import url("footer.css");
+
+
+/* Base colors */
+:root {
+  --primary-color: #1e3a8a; /* Deep blue */
+  --secondary-color: #3b82f6; /* Light blue */
+  --background-color: #f9fafb; /* Light gray background */
+  --text-color: #1f2937; /* Dark text */
+  --link-color: #2563eb; /* Blue for links */
+  --header-bg-color: #111827; /* Dark background for header */
+  --footer-bg-color: #111827; /* Dark background for footer */
+  --white-color: #ffffff;
+  --black-color: #000000;
+}
+
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Main content */
+main {
+  padding: 40px 20px;
+}
+
+/* Button Styles */
+button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 10px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}

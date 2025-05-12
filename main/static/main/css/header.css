@@ -1,0 +1,32 @@
+/* Header */
+header {
+    background-color: var(--header-bg-color);
+    color: var(--white-color);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    color: var(--link-color);
+  }
+  
+  
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  nav ul li a {
+    color: var(--link-color);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav ul li a:hover {
+    color: var(--secondary-color);
+  }
