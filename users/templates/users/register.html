@@ -5,13 +5,13 @@
 <div class="register-choice">
     <h2>Register As:</h2>
     <div class="choice-cards">
-        <a href="#" class="choice-card">
+        <a href="{% url 'register_customer' %}" class="choice-card">
             <!-- <img src="{% static 'main/images/customer-icon.png' %}" alt="Customer"> -->
             <i class="fas fa-user fa-3x"></i>
             <h3>Customer</h3>
             <p>Shop, browse, and manage your purchases easily.</p>
         </a>
-        <a href="#" class="choice-card">
+        <a href="{% url 'register_company' %}" class="choice-card">
             <!-- <img src="{% static 'main/images/company-icon.png' %}" alt="Company"> -->
             <i class="fas fa-building fa-3x"></i>
             <h3>Company</h3>

@@ -1,5 +1,5 @@
 /* Center the login form container */
-.login-page {
+.login-page, .register-page {
     width: 50%;
     max-width: 400px;
     background-color: var(--white-color, #fff);
