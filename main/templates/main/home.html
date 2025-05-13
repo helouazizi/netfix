@@ -4,4 +4,21 @@
 
 {% block content %}
     <h2>Welcome to Netfix Home Page!</h2>
+
+    <section class="company-list">
+        {% if companies %}
+            <h3>Available Companies:</h3>
+            <ul>
+                {% for company in companies %}
+                    <li class="company-card">
+                        <h4>{{ company.user.username }}</h4>
+                        <p><strong>Field of Work:</strong> {{ company.field_of_work }}</p>
+                        <p><strong>Email:</strong> {{ company.user.email }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No companies available at the moment.</p>
+        {% endif %}
+    </section>
 {% endblock %}

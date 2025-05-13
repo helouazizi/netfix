@@ -1,6 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser  , PermissionsMixin ,BaseUserManager
 from django.db import models
-
+from django.core.exceptions import ValidationError
 
 # -----------------------
 # Custom User Manager
@@ -75,10 +75,30 @@ class Customerprofile(models.Model):
 # -----------------------
 # Company Profile
 # -----------------------
-
 class CompanyProfile(models.Model):
-    user = models.OneToOneField(CostumUser,on_delete=models.CASCADE,related_name="company_profile")
-    field_of_work = models.CharField(max_length=255)
-    
+    # shoud respect the subject  fiels of work
+    FIELD_OF_WORK_CHOICES = [
+        ('Air Conditioner', 'Air Conditioner'),
+        ('All in One', 'All in One'),
+        ('Carpentry', 'Carpentry'),
+        ('Electricity', 'Electricity'),
+        ('Gardening', 'Gardening'),
+        ('Home Machines', 'Home Machines'),
+        ('Housekeeping', 'Housekeeping'),
+        ('Interior Design', 'Interior Design'),
+        ('Locks', 'Locks'),
+        ('Painting', 'Painting'),
+        ('Plumbing', 'Plumbing'),
+        ('Water Heaters', 'Water Heaters'),
+    ]
+
+    user = models.OneToOneField(CostumUser, on_delete=models.CASCADE, related_name="company_profile")
+    field_of_work = models.CharField(max_length=255, choices=FIELD_OF_WORK_CHOICES)
+    def clean(self):
+        # Ensure the field_of_work is one of the valid choices
+        if self.field_of_work not in dict(self.FIELD_OF_WORK_CHOICES):
+            raise ValidationError({'field_of_work': 'Invalid field of work selection'})
+
+
     def __str__(self):
         return f"{self.user.username} (Company)"

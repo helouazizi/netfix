@@ -19,19 +19,20 @@ def register_company(request):
     if request.method == 'POST':
         form = CompanyRegistrationForm(request.POST)
         if form.is_valid():
-            # Create base user
-            email = form.cleaned_data['email']
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            field_of_work = form.cleaned_data['field_of_work']
+            user = CostumUser.objects.create_user(
+                email=form.cleaned_data['email'],
+                username=form.cleaned_data['username'],
+                password=form.cleaned_data['password']
+            )
+            field = form.cleaned_data['field_of_work']
+            if field not in dict(CompanyProfile.FIELD_OF_WORK_CHOICES):
+                form.add_error('field_of_work', 'Invalid field of work.')
+                return render(request, 'users/register_company.html', {'form': form})
 
-            user = CostumUser.objects.create_user(email=email, username=username, password=password)
-            CompanyProfile.objects.create(user=user, field_of_work=field_of_work)
-
-            messages.success(request, 'Company account created successfully!')
-            return redirect('login')
+            CompanyProfile.objects.create(user=user, field_of_work=field)
+            return redirect('login')  # Or wherever you want
         else:
-            messages.error(request, 'Please correct the errors below.')
+            return render(request, 'users/register_company.html', {'form': form})  # <== needed
     else:
         form = CompanyRegistrationForm()
 

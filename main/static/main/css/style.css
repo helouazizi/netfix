@@ -72,3 +72,27 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: var(--secondary-color);
 }
+
+
+
+/* ===================================================== */
+
+
+.company-list {
+  margin-top: 2rem;
+  padding: 1rem;
+}
+
+.company-card {
+  background-color: var(--background-color);
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.company-card h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}

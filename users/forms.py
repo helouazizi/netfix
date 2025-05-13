@@ -29,20 +29,41 @@ class  CustomerRegistrationForm(forms.ModelForm):
 # -----------------------
 # Company Registration Form
 # -----------------------
+# class CompanyRegistrationForm(forms.ModelForm):
+    
 class CompanyRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
     password_confirm = forms.CharField(widget=forms.PasswordInput)
-    field_of_work = forms.CharField()
+    field_of_work = forms.ChoiceField(choices=CompanyProfile.FIELD_OF_WORK_CHOICES)
 
     class Meta:
         model = CostumUser
-        fields = ['email', 'username', 'password', 'password_confirm', 'field_of_work']
-
+        fields = ['email', 'username', 'password', 'password_confirm']
+    
     def clean(self):
         cleaned_data = super().clean()
+        
+        # Check if passwords match
         if cleaned_data.get("password") != cleaned_data.get("password_confirm"):
             self.add_error('password_confirm', "Passwords do not match.")
+        
         return cleaned_data
+
+    def save(self, commit=True):
+        # Save the user first
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['password'])
+        if commit:
+            user.save()
+
+        # Create the CompanyProfile with the field_of_work data
+        company_profile = CompanyProfile(
+            user=user,
+            field_of_work=self.cleaned_data['field_of_work']
+        )
+        company_profile.save()
+
+        return user
     
     
 # -----------------------
