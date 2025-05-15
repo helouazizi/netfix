@@ -1,15 +1,16 @@
 from django.shortcuts import render , redirect
 from django.contrib.auth import logout
 from users.models import CompanyProfile
+from services.models import Service
 
 # Create your views here.
 def home(request):
     # def home(request):
     service = request.GET.get('service')
-    companies = CompanyProfile.objects.all()
+    services = Service.objects.all()
     if service:
-        companies = companies.filter(field_of_work=service)
-    return render(request, 'main/home.html', {'companies': companies, 'selected_service': service})
+        services = services.filter(field=service)
+    return render(request, 'main/home.html', {'services': services, 'selected_service': service,'serv_title':service})
 
     # return render(request,'main/home.html')
 

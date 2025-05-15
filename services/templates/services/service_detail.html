@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %} {% load static %} {% block content %}
+<div class="service-detail-container">
+  <div class="service-card" style="margin: 5px 0">
+    <div style="display: flex; align-items: center">
+      <h4 style="color: var(--secondary-color)">{{ service.field }}:</h4>
+      <strong> {{ service.name }}</strong
+      ><span>--{{ service.price_per_hour }}$</span>
+    </div>
+    <p style="color: var(--text-color)">>> by {{service.company.username}}</p>
+  </div>
+  <p style="padding: 1rem">{{ service.description }}</p>
+  {% if user.is_customer %}
+  <form method="POST" action="{% url 'request_service' service.id %}">
+    {% csrf_token %}
+    <div>
+      <label for="address">Your Address:</label><br />
+      <input type="text" name="address" id="address" required />
+    </div>
+    <div>
+      <label for="hours">Number of Hours:</label><br />
+      <input type="number" name="hours" id="hours" min="1" required />
+    </div>
+    <button style="margin: 1rem 0;" type="submit" class="btn-request">Request Service</button>
+  </form>
+  {%endif%}
+</div>
+{% endblock %}

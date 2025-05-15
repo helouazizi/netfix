@@ -32,3 +32,12 @@ class Service(models.Model):
     def __str__(self):
         return self.name
 
+class ServiceRequest(models.Model):
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    address = models.CharField(max_length=255)
+    hours = models.PositiveIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.customer.username} requested {self.service.name}"

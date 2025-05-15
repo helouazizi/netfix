@@ -4,30 +4,62 @@
 {% block content %}
 <div class="profile-container">
   <div class="profile-header">
-    <h1>{{ user.get_full_name|default:user.username }}'s Profile</h1>
-    <p><strong>{{ field_of_work }}</strong> Company</p>
-  </div>
-  <div class="user-info">
-    <p><strong>Username:</strong> {{ user.username }}</p>
-    <p><strong>Email:</strong> {{ user.email }}</p>
+    <div class="user-info">
+      <h1>{{ user.get_full_name|default:user.username }}'s Profile</h1>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+    </div>
+    <p><strong>{{ user.username }}</strong>
+      {% if user.is_company %}
+        <span class="badge">Company</span>
+      {% else %}
+        <span class="badge">Customer</span>
+      {% endif %}
+    </p>
   </div>
 
-  <hr>
+  <hr />
 
-  <h2>Your Services</h2>
-  <div class="services-list">
-    {% if services %}
-      {% for service in services %}
-        <div class="service-card">
-          <h3>{{ service.name }}</h3>
-          <p><strong>Field:</strong> {{ service.field }}</p>
-          <p>{{ service.description }}</p>
-          <p><strong>Price per hour:</strong> ${{ service.price_per_hour }}</p>
-          <p class="date">Posted on: {{ service.created_at|date:"M d, Y" }}</p>
-        </div>
-      {% endfor %}
+  <h2 style="color: var(--secondary-color);">
+    {% if user.is_company %}
+      Your Services
     {% else %}
-      <p class="no-services">You haven't posted any services yet.</p>
+      Requested Services
+    {% endif %}
+  </h2>
+
+  <div class="services-list">
+    {% if user.is_company %}
+      {% if services %}
+        {% for service in services %}
+          <div class="service-card">
+            <div style="display: flex; align-items: center;">
+              <h3>{{ service.name }}</h3>
+              <span>-- {{ service.price_per_hour }}$</span>
+            </div>
+            <p>{{ service.description }}</p>
+            <a href="{% url 'service_detail' service.id %}" class="btn-view">View</a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-services">No services yet.</p>
+      {% endif %}
+    
+    {% elif user.is_customer %}
+      {% if requests %}
+        {% for request in requests %}
+          <div class="service-card">
+            <div style="display: flex; align-items: center;">
+              <h3>{{ request.service.name }}</h3>
+              <span>-- {{ request.service.price_per_hour }}$</span>
+            </div>
+            <p>Status: <strong>{{ request.status }}</strong></p>
+            <p>Company: {{ request.service.company.username }}</p>
+            <a href="{% url 'service_detail' request.service.id %}" class="btn-view">View</a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-services">No requested services yet.</p>
+      {% endif %}
     {% endif %}
   </div>
 </div>

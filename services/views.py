@@ -1,8 +1,8 @@
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect ,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import ServiceForm
-from .models import Service
+from .models import Service ,ServiceRequest
 
 
 
@@ -32,11 +32,49 @@ def create_service(request):
 @login_required
 def profile_view(request):
     user = request.user
-    # You can pass more data as needed, like user profile info
-        # Access the related profile
-    try:
-        field_of_work = user.company_profile.field_of_work
-    except AttributeError:
-        field_of_work = "Not specified"
-    services = Service.objects.filter(company=user)
-    return render(request, 'services/profile.html', {'user': user,'services':services,'field_of_work':field_of_work},)
+
+    if user.is_company:
+        services = Service.objects.filter(company=user)
+        return render(request, 'services/profile.html', {
+            'user': user,
+            'services': services,
+            'is_company': True,
+        })
+
+    elif user.is_customer:
+        requests = ServiceRequest.objects.filter(customer=user)
+        return render(request, 'services/profile.html', {
+            'user': user,
+            'requests': requests,
+            'is_customer': True,
+        })
+
+    # fallback in case neither
+    return render(request, 'services/profile.html', {'user': user})
+
+@login_required
+def service_detail(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    return render(request, 'services/service_detail.html', {'service': service})
+
+
+
+@login_required
+def request_service(request, service_id):
+    service = get_object_or_404(Service, id=service_id)
+    
+    if request.method == "POST" and request.user.is_customer:
+        address = request.POST.get("address")
+        hours = request.POST.get("hours")
+
+        # You can add validations here
+
+        ServiceRequest.objects.create(
+            service=service,
+            customer=request.user,
+            address=address,
+            hours=hours,
+        )
+        return redirect("profile")  # or to a success page
+
+    return redirect("service_detail", service_id=service_id)

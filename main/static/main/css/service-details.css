@@ -1,0 +1,28 @@
+.service-detail-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.service-detail-container h1 {
+  color: #007acc;
+  margin-bottom: 15px;
+}
+
+.btn-request {
+  background-color: #007acc;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-request:hover {
+  background-color: #005fa3;
+}

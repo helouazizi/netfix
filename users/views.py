@@ -8,9 +8,6 @@ from .forms import CompanyRegistrationForm, CustomerRegistrationForm, EmailAuthe
 
 def register(request):
     return render(request, 'users/register.html')
-
-
-
 # -----------------------
 # Company Registration View
 # -----------------------

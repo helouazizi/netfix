@@ -1,24 +1,22 @@
-{% extends 'main/base.html' %}
-
-{% block title %}Home | Netfix{% endblock %}
-
+{% extends 'main/base.html' %} {% block title %}Home | Netfix{% endblock %} 
 {% block content %}
-    <h2>Welcome to Netfix Home Page!</h2>
+<h2>Welcome to Netfix Home Page!</h2>
 
-    <section class="company-list">
-        {% if companies %}
-            <h3>Most Request Services</h3>
-            <ul>
-                {% for company in companies %}
-                    <li class="company-card">
-                        <h4>{{ company.user.username }}</h4>
-                        <p><strong>Field of Work:</strong> {{ company.field_of_work }}</p>
-                        <p><strong>Email:</strong> {{ company.user.email }}</p>
-                    </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No companies available at the moment.</p>
-        {% endif %}
-    </section>
+<section class="company-list">
+  {% if services %}
+  <h3>{% if serv_title %} {{serv_title }} Services  {% else %} Most Request Services {%endif%}</h3>
+  <ul>
+    {% for service in services %}
+    <li class="service-card" style="margin: 5px 0;">
+        <div style="display: flex; align-items: center;">
+        <h4 style="color: var(--secondary-color);">{{ service.field }}: </h4><a href="{% url 'service_detail'  service.id%}"> {{ service.name }}</a><span>--{{ service.price_per_hour }}$</span>
+        </div>
+        <p style="color:var(--text-color) ;">>> by {{service.company.username}}</p>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No services available at the moment.</p>
+  {% endif %}
+</section>
 {% endblock %}
