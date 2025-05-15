@@ -1,0 +1,118 @@
+.services-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem 2.5rem;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  .services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .services-header h1 {
+    font-size: 2.25rem;
+    margin: 0;
+    color: #222;
+  }
+  
+  .btn-create {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+    display: inline-block;
+  }
+  
+  .btn-create:hover,
+  .btn-create:focus {
+    background-color: #0056b3;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.5);
+    outline: none;
+  }
+  
+  .services-list {
+    list-style-type: none;
+    padding: 0;
+    max-height: 500px;
+    overflow-y: auto;
+    margin-top: 1rem;
+  }
+  
+  .services-list li {
+    background-color: #f0f4f8;
+    margin-bottom: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 10px;
+    border-left: 6px solid #007bff;
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+    transition: background-color 0.2s ease;
+  }
+  
+  .services-list li:hover {
+    background-color: #e8f0fe;
+  }
+  
+  .services-list li strong {
+    color: #007bff;
+  }
+  
+  .service-item {
+    border: 1px solid #ddd;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background: #f9f9f9;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  }
+  
+  .service-item h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #004085;
+    font-weight: 700;
+  }
+  
+  @media (max-width: 600px) {
+    .services-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  
+    .services-header h1 {
+      font-size: 1.75rem;
+    }
+  
+    .btn-create {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  .services-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 2rem;
+  }
+  
+  .services-container label {
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+    display: block;
+  }

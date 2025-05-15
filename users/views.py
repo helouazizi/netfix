@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
 from .forms import CompanyRegistrationForm, CustomerRegistrationForm, EmailAuthenticationForm
-from .models import CompanyProfile, Customerprofile, CostumUser
 
 
 
@@ -19,24 +18,13 @@ def register_company(request):
     if request.method == 'POST':
         form = CompanyRegistrationForm(request.POST)
         if form.is_valid():
-            user = CostumUser.objects.create_user(
-                email=form.cleaned_data['email'],
-                username=form.cleaned_data['username'],
-                password=form.cleaned_data['password']
-            )
-            field = form.cleaned_data['field_of_work']
-            if field not in dict(CompanyProfile.FIELD_OF_WORK_CHOICES):
-                form.add_error('field_of_work', 'Invalid field of work.')
-                return render(request, 'users/register_company.html', {'form': form})
-
-            CompanyProfile.objects.create(user=user, field_of_work=field)
-            return redirect('login')  # Or wherever you want
-        else:
-            return render(request, 'users/register_company.html', {'form': form})  # <== needed
+            form.save()  
+            return redirect('login')
     else:
         form = CompanyRegistrationForm()
 
     return render(request, 'users/register_company.html', {'form': form})
+
 
 # -----------------------
 # Customer Registration View
@@ -45,14 +33,7 @@ def register_customer(request):
     if request.method == 'POST':
         form = CustomerRegistrationForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data['email']
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
-            date_of_birth = form.cleaned_data['date_of_birth']
-
-            user = CostumUser.objects.create_user(email=email, username=username, password=password)
-            Customerprofile.objects.create(user=user, date_of_birth=date_of_birth)
-
+            form.save()
             messages.success(request, 'Customer account created successfully!')
             return redirect('login')
         else:
@@ -66,16 +47,17 @@ def register_customer(request):
 # Login View
 # -----------------------
 def login(request):
-     if request.method == 'POST':
+    if request.method == 'POST':
         form = EmailAuthenticationForm(request.POST)
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
             messages.success(request, 'Logged in successfully!')
-            return redirect('home')  # Change to your actual homepage route name
+            return redirect('home')
         else:
             messages.error(request, 'Invalid login credentials.')
-     else:
-         form = EmailAuthenticationForm()
+    else:
+        form = EmailAuthenticationForm()
 
-         return render(request, 'users/login.html', {'form': form})
+    return render(request, 'users/login.html', {'form': form})
+

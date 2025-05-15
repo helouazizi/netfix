@@ -1,6 +1,7 @@
 @import url("header.css");
 @import url("authofication.css");
 @import url("footer.css");
+@import url("services.css");
 
 
 /* Base colors */
@@ -52,7 +53,9 @@ button:hover {
 }
 
 input[type="text"],
-input[type="password"] ,input[type="email"]{
+input[type="password"] ,
+input[type="email"],
+textarea{
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;

@@ -45,8 +45,8 @@ class CostumUser(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
-    
-    
+    is_company = models.BooleanField(default=False)
+    is_customer = models.BooleanField(default=False)
     # link this costom user with its manager to mange him in term of database 
     # becouse django cant manage a custome user created by a programmer so i created a manger to mange it
     objects = CostumUserManager()

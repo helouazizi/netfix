@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="services-container">
+  <div class="services-header">
+    <h1>Welcome to the Services Page</h1>
+    {% if request.user.is_authenticated and request.user.is_company %}
+      <a href="{% url 'create_service' %}" class="btn-create">+ Create New Service</a>
+    {% endif %}
+  </div>
+
+  <h2>Available Services</h2>
+  <ul class="services-list">
+    {% for service in services %}
+    <li class="service-item">
+        <h3>{{ service.name }}</h3>
+        <p><strong>Description:</strong> {{ service.description }}</p>
+        <p><strong>Field:</strong> {{ service.get_field_display }}</p>
+        <p><strong>Price per hour:</strong> {{ service.price_per_hour }}$</p>
+        <p><strong>Company:</strong> {{ service.company.username }}</p>
+        <p><small><em>Created at: {{ service.created_at|date:"F j, Y, g:i a" }}</em></small></p>
+      </li>
+    {% empty %}
+      <li>No services available at the moment.</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
