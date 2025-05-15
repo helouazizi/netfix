@@ -28,3 +28,9 @@ def create_service(request):
         form = ServiceForm()
 
     return render(request, 'services/create_service.html', {'form': form})
+
+@login_required
+def profile_view(request):
+    user = request.user
+    # You can pass more data as needed, like user profile info
+    return render(request, 'services/profile.html', {'user': user})

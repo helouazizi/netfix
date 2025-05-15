@@ -33,9 +33,7 @@ class CostumUserManager(BaseUserManager):
      user.save(using=self._db)
      return user
 
-    
-    
-    
+  
 # -----------------------
 # Custom User Model
 # -----------------------
@@ -91,6 +89,7 @@ class CompanyProfile(models.Model):
         ('Plumbing', 'Plumbing'),
         ('Water Heaters', 'Water Heaters'),
     ]
+    
 
     user = models.OneToOneField(CostumUser, on_delete=models.CASCADE, related_name="company_profile")
     field_of_work = models.CharField(max_length=255, choices=FIELD_OF_WORK_CHOICES)
