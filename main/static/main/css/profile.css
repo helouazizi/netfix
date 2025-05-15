@@ -1,11 +1,52 @@
 .profile-container {
-    max-width: 700px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: #fafafa;
-    border-radius: 10px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #222;
-  }
-  
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info p {
+  margin: 5px 0;
+}
+
+hr {
+  margin: 30px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.service-card {
+  background-color: #f9f9f9;
+  padding: 15px 20px;
+  border-left: 5px solid #007acc;
+  border-radius: 8px;
+}
+
+.service-card h3 {
+  margin-top: 0;
+  color: #007acc;
+}
+
+.service-card .date {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.no-services {
+  color: #999;
+  font-style: italic;
+}

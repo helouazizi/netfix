@@ -33,4 +33,10 @@ def create_service(request):
 def profile_view(request):
     user = request.user
     # You can pass more data as needed, like user profile info
-    return render(request, 'services/profile.html', {'user': user})
+        # Access the related profile
+    try:
+        field_of_work = user.company_profile.field_of_work
+    except AttributeError:
+        field_of_work = "Not specified"
+    services = Service.objects.filter(company=user)
+    return render(request, 'services/profile.html', {'user': user,'services':services,'field_of_work':field_of_work},)
