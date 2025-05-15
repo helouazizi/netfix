@@ -19,11 +19,11 @@
     </form>
 
     {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li>{{ message }}</li>
-        {% endfor %}
-        </ul>
+            <ul>
+            {% for message in messages %}
+                <li class="messagge-error">{{ message }}</li>
+            {% endfor %}
+            </ul>
     {% endif %}
 </div>
 {% endblock %}

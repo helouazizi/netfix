@@ -11,5 +11,12 @@
         {{ form.as_p }}
         <button type="submit">Register</button>
     </form>
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li class="messagge-error">{{ message }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
 </div>
 {% endblock %}
