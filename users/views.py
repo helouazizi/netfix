@@ -4,8 +4,6 @@ from django.contrib import messages
 from .forms import CompanyRegistrationForm, CustomerRegistrationForm, EmailAuthenticationForm
 
 
-
-
 def register(request):
     return render(request, 'users/register.html')
 # -----------------------

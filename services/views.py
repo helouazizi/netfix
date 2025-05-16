@@ -9,7 +9,7 @@ from users.models import CompanyProfile
 
 
 def servives(request):
-    services = Service.objects.select_related('company').all()
+    services = Service.objects.select_related('company').all().order_by('-created_at')
     return  render(request,'services/services.html',{'services':services})
 
 

@@ -65,7 +65,6 @@ class CompanyRegistrationForm(forms.ModelForm):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data['password'])
         user.is_company = True  # Set the flag for the company user
-        print("DEBUG: is_company before save =", user.is_company)  # Debug line
         if commit:
             user.save()
 
@@ -80,6 +79,7 @@ class CompanyRegistrationForm(forms.ModelForm):
 # -----------------------
 # Login Form
 # -----------------------
+
 class EmailAuthenticationForm(forms.Form):
     email = forms.EmailField(label="Email")
     password = forms.CharField(widget=forms.PasswordInput)

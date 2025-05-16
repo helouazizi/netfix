@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.contrib.auth import logout
 from django.db.models import Count
-from users.models import CompanyProfile
+# from users.models import CompanyProfile
 from services.models import Service
 
 # Create your views here.
