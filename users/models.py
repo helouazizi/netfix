@@ -39,7 +39,7 @@ class CostumUserManager(BaseUserManager):
 # -----------------------
 
 class CostumUser(AbstractBaseUser,PermissionsMixin):
-    username = models.CharField(max_length=125)
+    username = models.CharField(unique=True,max_length=125,)
     email = models.EmailField(unique=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
