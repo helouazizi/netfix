@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect ,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .forms import ServiceForm
 from .models import Service ,ServiceRequest
+from users.models import CompanyProfile
 
 
 
@@ -14,20 +15,30 @@ def servives(request):
 
 @login_required
 def create_service(request):
-    if not request.user.is_authenticated or not request.user.is_company:
-        return redirect('services')  # or return a 403
-
     if request.method == 'POST':
         form = ServiceForm(request.POST)
         if form.is_valid():
             service = form.save(commit=False)
             service.company = request.user
-            service.save()
-            return redirect('services')  # Redirect to services page or detail
+
+            try:
+                company_field = request.user.company_profile.field_of_work
+            except CompanyProfile.DoesNotExist:
+                form.add_error(None, "Company profile not found.")
+                return render(request, 'services/create_service.html', {'form': form})
+
+            if service.field == "All in One":
+                form.add_error('field', "You cannot create a service with the 'All in One' field.")
+            elif company_field != "All in One" and service.field != company_field:
+                form.add_error('field', f"As a {company_field} company, you can only create {company_field} services.")
+
+            if not form.errors:
+                service.save()
+                return redirect('profile')
     else:
         form = ServiceForm()
-
     return render(request, 'services/create_service.html', {'form': form})
+
 
 @login_required
 def profile_view(request):

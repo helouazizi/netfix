@@ -1,8 +1,9 @@
 # services/models.py
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.conf import settings
-from django.utils import timezone
+# from django.utils import timezone
 
 User = get_user_model()
 
@@ -29,6 +30,18 @@ class Service(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     company = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     # request_count = models.PositiveIntegerField(default=0)/
+    # def clean(self):
+        
+    #     super().clean()
+
+    #     # Prevent services from being "All in One"
+    #     if self.field == "All in One":
+    #         raise ValidationError("You cannot create a service with the 'All in One' field.")
+
+    #     # If the company is not "All in One", they can only create services matching their own field
+    #     if self.company.field != "All in One" and self.company.field != self.field:
+    #         raise ValidationError(f"A {self.company.field} company can only create services in the same field.")
+
 
     def __str__(self):
         return self.name
