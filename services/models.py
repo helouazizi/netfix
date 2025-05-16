@@ -28,12 +28,13 @@ class Service(models.Model):
     price_per_hour = models.DecimalField(max_digits=8, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     company = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # request_count = models.PositiveIntegerField(default=0)/
 
     def __str__(self):
         return self.name
 
 class ServiceRequest(models.Model):
-    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE,related_name='servicerequest')
     customer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     address = models.CharField(max_length=255)
     hours = models.PositiveIntegerField()
