@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error {{ context.status_code }}</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3rem;
+            color: #c0392b;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+        a {
+            text-decoration: none;
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Error {{ context.status_code }}</h1>
+    <p>{{ context.message }}</p>
+    <a href="/">Go back home</a>
+</body>
+</html>
