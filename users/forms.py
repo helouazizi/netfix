@@ -4,9 +4,7 @@ from django.contrib.auth import authenticate
 from .models import CostumUser, Customerprofile , CompanyProfile
 
 
-# -----------------------
-# Customer Registration Form
-# -----------------------
+
 
 class CustomerRegistrationForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)
