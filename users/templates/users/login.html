@@ -1,3 +1,4 @@
+<!-- users/templates/users/login.html -->
 {% extends 'main/base.html' %}
 {% load static %}
 
@@ -17,13 +18,13 @@
 
         <button type="submit">Login</button>
     </form>
-
     {% if messages %}
-            <ul>
-            {% for message in messages %}
-                <li class="messagge-error">{{ message }}</li>
-            {% endfor %}
-            </ul>
+    {% for message in messages %}
+    <div class="message-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
     {% endif %}
+
 </div>
 {% endblock %}

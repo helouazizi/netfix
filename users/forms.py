@@ -94,7 +94,7 @@ class EmailAuthenticationForm(forms.Form):
         if email and password:
             user = authenticate(email=email, password=password)
             if not user:
-                raise forms.ValidationError("")
+                raise forms.ValidationError("bbbbbbbbbbbbbbbbbb")
             self.user = user
         return cleaned_data
 
