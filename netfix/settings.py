@@ -1,3 +1,4 @@
+# netfix/settings.py
 """
 Django settings for netfix project.
 

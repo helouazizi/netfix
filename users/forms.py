@@ -1,3 +1,4 @@
+# users/forms.py
 from django import forms
 from django.contrib.auth import authenticate
 from .models import CostumUser, Customerprofile , CompanyProfile
@@ -64,7 +65,7 @@ class CompanyRegistrationForm(forms.ModelForm):
         # Save the user first
         user = super().save(commit=False)
         user.set_password(self.cleaned_data['password'])
-        user.is_company = True  # Set the flag for the company user
+        user.is_company = True  
         if commit:
             user.save()
 
@@ -76,6 +77,8 @@ class CompanyRegistrationForm(forms.ModelForm):
         company_profile.save()
 
         return user
+
+
 # -----------------------
 # Login Form
 # -----------------------

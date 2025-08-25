@@ -1,3 +1,4 @@
+# users/views.py
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib import messages
@@ -15,8 +16,10 @@ def register_company(request):
         if form.is_valid():
             form.save()  
             return redirect('login')
+      
     else:
         form = CompanyRegistrationForm()
+        
 
     return render(request, 'users/register_company.html', {'form': form})
 
