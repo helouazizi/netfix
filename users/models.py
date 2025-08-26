@@ -3,9 +3,6 @@ from django.contrib.auth.models import AbstractBaseUser  , PermissionsMixin ,Bas
 from django.db import models
 from django.core.exceptions import ValidationError
 
-# -----------------------
-# Custom User Manager
-# -----------------------
 
 class CostumUserManager(BaseUserManager):
     # create a method for creating user
@@ -58,9 +55,7 @@ class CostumUser(AbstractBaseUser,PermissionsMixin):
 
 
 
-# -----------------------
-# Customer Profile
-# -----------------------
+
 
 class Customerprofile(models.Model):
     user = models.OneToOneField(CostumUser,on_delete=models.CASCADE,related_name="customer_profile")
@@ -70,10 +65,7 @@ class Customerprofile(models.Model):
         return f"{self.user.username} (Customer)"
     
     
-    
-# -----------------------
-# Company Profile
-# -----------------------
+
 class CompanyProfile(models.Model):
     # shoud respect the subject  fiels of work
     FIELD_OF_WORK_CHOICES = [

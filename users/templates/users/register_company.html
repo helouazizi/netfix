@@ -10,7 +10,7 @@
     <form method="post">
         {% csrf_token %}
         {% if form.non_field_errors %}
-        <div class="error" > {{ form.non_field_errors }}</div>
+        <div class="error"> {{ form.non_field_errors }}</div>
         {% endif %}
 
         <div>
@@ -52,8 +52,15 @@
             {% endif %}
         </div>
 
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
 
-        <!-- {{ form.as_p }} -->
+
         <button type="submit">Register</button>
     </form>
 </div>

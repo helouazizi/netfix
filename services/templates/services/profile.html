@@ -10,9 +10,9 @@
     </div>
     <p><strong>{{ user.username }}</strong>
       {% if user.is_company %}
-        <span class="badge">Company</span>
+      <span class="badge">Company</span>
       {% else %}
-        <span class="badge">Customer</span>
+      <span class="badge">Customer</span>
       {% endif %}
     </p>
   </div>
@@ -21,45 +21,46 @@
 
   <h2 style="color: var(--secondary-color);">
     {% if user.is_company %}
-      Your Services
+    Your Services
     {% else %}
-      Requested Services
+    Requested Services
     {% endif %}
   </h2>
 
   <div class="services-list">
     {% if user.is_company %}
-      {% if services %}
-        {% for service in services %}
-          <div class="service-card">
-            <div style="display: flex; align-items: center;">
-              <h3>{{ service.name }}</h3>
-              <span>-- {{ service.price_per_hour }}$</span>
-            </div>
-            <p>{{ service.description }}</p>
-            <a href="{% url 'service_detail' service.id %}" class="btn-view">View</a>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p class="no-services">No services yet.</p>
-      {% endif %}
-    
+    {% if services %}
+    {% for service in services %}
+    <div class="service-card">
+      <div style="display: flex; align-items: center;">
+        <h3>{{ service.name }}</h3>
+        <span>-- {{ service.price_per_hour }}$</span>
+      </div>
+      <p>{{ service.description }}</p>
+      <a href="{% url 'service_detail' service.id %}" class="btn-view">View</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p class="no-services">No services yet.</p>
+    {% endif %}
+
     {% elif user.is_customer %}
-      {% if requests %}
-        {% for request in requests %}
-          <div class="service-card">
-            <div style="display: flex; align-items: center;">
-              <h3>{{ request.service.name }}</h3>
-              <span>-- {{ request.service.price_per_hour }}$</span>
-            </div>
-            <p>Status: <strong>{{ request.status }}</strong></p>
-            <p>Company: {{ request.service.company.username }}</p>
-            <a href="{% url 'service_detail' request.service.id %}" class="btn-view">View</a>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p class="no-services">No requested services yet.</p>
-      {% endif %}
+    {% if requests %}
+    {% for request in requests %}
+    <div class="service-card">
+      <div style="display: flex; align-items: center;">
+        <h3>{{ request.service.name }}</h3>
+        <span>-- {{ request.service.price_per_hour }}$</span>
+      </div>
+      <p>Duration: <strong>{{  request.hours }} h</strong></p>
+       <p>Total: <strong>{{  request.total }}$</strong></p>
+      <p>Company: {{ request.service.company.username }}</p>
+      <a href="{% url 'service_detail' request.service.id %}" class="btn-view">View</a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p class="no-services">No requested services yet.</p>
+    {% endif %}
     {% endif %}
   </div>
 </div>

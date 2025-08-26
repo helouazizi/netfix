@@ -3,12 +3,12 @@
   <div class="service-card" style="margin: 5px 0">
     <div style="display: flex; align-items: center">
       <h4 style="color: var(--secondary-color)">{{ service.field }}:</h4>
-      <strong> {{ service.name }}</strong
-      ><span>--{{ service.price_per_hour }}$</span>
+      <strong> {{ service.name }}</strong><span>--{{ service.price_per_hour }}$</span>
     </div>
     <p style="color: var(--text-color)">>> by {{service.company.username}}</p>
   </div>
   <p style="padding: 1rem">{{ service.description }}</p>
+  <p><small><em>Created at: {{ service.created_at|date:"F j, Y, g:i a" }}</em></small></p>
   {% if user.is_customer %}
   <form method="POST" action="{% url 'request_service' service.id %}">
     {% csrf_token %}

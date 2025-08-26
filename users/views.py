@@ -1,20 +1,20 @@
 # users/views.py
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login as auth_login
+from django.contrib.auth import login as auth_login
 from django.contrib import messages
 from .forms import CompanyRegistrationForm, CustomerRegistrationForm, EmailAuthenticationForm
 
 
 def register(request):
     return render(request, 'users/register.html')
-# -----------------------
-# Company Registration View
-# -----------------------
+
+
 def register_company(request):
     if request.method == 'POST':
         form = CompanyRegistrationForm(request.POST)
         if form.is_valid():
             form.save()  
+            messages.success(request, 'Company account created successfully!')
             return redirect('login')
       
     else:
@@ -24,9 +24,7 @@ def register_company(request):
     return render(request, 'users/register_company.html', {'form': form})
 
 
-# -----------------------
-# Customer Registration View
-# -----------------------
+
 def register_customer(request):
     if request.method == 'POST':
         form = CustomerRegistrationForm(request.POST)
@@ -41,9 +39,7 @@ def register_customer(request):
 
     return render(request, 'users/register_customer.html', {'form': form})
 
-# -----------------------
-# Login View
-# -----------------------
+
 def login(request):
     if request.method == 'POST':
         form = EmailAuthenticationForm(request.POST)
@@ -58,4 +54,3 @@ def login(request):
         form = EmailAuthenticationForm()
 
     return render(request, 'users/login.html', {'form': form})
-

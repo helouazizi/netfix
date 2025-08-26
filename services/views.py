@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ServiceForm
 from .models import Service ,ServiceRequest
 from users.models import CompanyProfile
+from decimal import Decimal,ROUND_HALF_UP
 
 
 
@@ -54,13 +55,14 @@ def profile_view(request):
 
     elif user.is_customer:
         requests = ServiceRequest.objects.filter(customer=user)
+        for req in requests:
+            
+            print(req.total ,req.hours,req.service.price_per_hour, "total")
         return render(request, 'services/profile.html', {
             'user': user,
             'requests': requests,
             'is_customer': True,
         })
-
-    # fallback in case neither
     return render(request, 'services/profile.html', {'user': user})
 
 @login_required

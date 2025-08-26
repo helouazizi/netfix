@@ -1,11 +1,9 @@
 # services/models.py
-from django.core.exceptions import ValidationError
 from django.db import models
-from django.contrib.auth import get_user_model
 from django.conf import settings
-# from django.utils import timezone
 
-User = get_user_model()
+from decimal import Decimal ,ROUND_HALF_UP
+
 
 class Service(models.Model):
     FIELD_CHOICES = [
@@ -29,18 +27,6 @@ class Service(models.Model):
     price_per_hour = models.DecimalField(max_digits=8, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     company = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    # request_count = models.PositiveIntegerField(default=0)/
-    # def clean(self):
-        
-    #     super().clean()
-
-    #     # Prevent services from being "All in One"
-    #     if self.field == "All in One":
-    #         raise ValidationError("You cannot create a service with the 'All in One' field.")
-
-    #     # If the company is not "All in One", they can only create services matching their own field
-    #     if self.company.field != "All in One" and self.company.field != self.field:
-    #         raise ValidationError(f"A {self.company.field} company can only create services in the same field.")
 
 
     def __str__(self):
@@ -52,6 +38,12 @@ class ServiceRequest(models.Model):
     address = models.CharField(max_length=255)
     hours = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
+    
+    
+    @property
+    def total(self):
+        return self.service.price_per_hour * self.hours
+
 
     def __str__(self):
         return f"{self.customer.username} requested {self.service.name}"
