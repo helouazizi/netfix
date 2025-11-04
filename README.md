@@ -110,3 +110,5 @@ Educational project for Django learning purposes.
 - **Name**: Hassan El ouazizi
 - **Email**: ouazizi2code@gmail.com  
 - **GitHub**: [https://github.com/helouazizi](https://github.com/helouazizi)
+
+<!-- last befor refactore  -->
