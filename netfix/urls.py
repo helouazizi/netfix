@@ -25,3 +25,27 @@ urlpatterns = [
     path('services/', include('services.urls'))
     
 ]
+
+
+
+
+from django.conf.urls import handler400, handler403, handler404, handler500
+from django.shortcuts import render
+
+def custom_bad_request(request, exception):
+    return render(request, '400.html', status=400)
+
+def custom_permission_denied(request, exception):
+    return render(request, '403.html', status=403)
+
+def custom_page_not_found(request, exception):
+    return render(request, '404.html', status=404)
+
+def custom_server_error(request):
+    return render(request, '500.html', status=500)
+
+handler400 = custom_bad_request
+handler403 = custom_permission_denied
+handler404 = custom_page_not_found
+handler500 = custom_server_error
+
