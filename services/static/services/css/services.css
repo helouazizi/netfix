@@ -1,0 +1,178 @@
+/* 🎨 Ensure all styles use design tokens from :root */
+
+/* 🔘 Buttons */
+.btn-view {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    transition: var(--transition-medium);
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-view:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+}
+
+/* ✏️ Create button (same style as .btn-view but optional) */
+.btn-create {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-primary);
+    transition: var(--transition-medium);
+}
+
+.btn-create:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+}
+
+/* 📦 Card */
+.card {
+    background-color: var(--color-surface);
+    border: var(--border-width) var(--border-style) var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-md);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: var(--transition-medium);
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Card header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-sm);
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+.card-header h4 {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: var(--font-size-md);
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+/* Card body */
+.card-body {
+    flex-grow: 1;
+    margin-bottom: var(--space-md);
+}
+
+.card-body p {
+    font-family: var(--font-secondary);
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Card footer */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+.company-info .text-muted {
+    font-size: var(--font-size-sm);
+}
+
+/* 🌐 Page container */
+.services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    width: 90%;
+    max-width: 1200px;
+    margin: var(--space-xl) auto;
+}
+
+.services-header h1 {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.services-list {
+    width: 90%;
+    max-width: 1200px;
+    margin: var(--space-xl) auto;
+}
+
+.services-list h3 {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-lg);
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+/* Grid layout */
+.service-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+    padding: 0;
+    margin: 0;
+}
+
+/* Empty state */
+.no-services {
+    text-align: center;
+    font-style: italic;
+    font-size: var(--font-size-md);
+    color: var(--color-text-secondary);
+    margin-top: var(--space-md);
+    font-family: var(--font-secondary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .services-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+    }
+
+    .card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-xs);
+    }
+
+    .btn-view {
+        align-self: flex-end;
+        margin-top: var(--space-sm);
+    }
+}

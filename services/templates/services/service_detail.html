@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/css/service_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="service-detail-container">
+  <div class="service-card">
+    <div class="service-header">
+      <h4 class="service-field">{{ service.field }}:</h4>
+      <h3 class="service-name">{{ service.name }}</h3>
+      <span class="service-price">{{ service.price_per_hour }}$ / hour</span>
+    </div>
+    <p class="service-provider">by <strong>{{ service.company.username }}</strong></p>
+  </div>
+
+  <div class="service-description">
+    <p>{{ service.description }}</p>
+  </div>
+
+  <p class="service-meta">
+    <small><em>Created at: {{ service.created_at|date:"F j, Y, g:i a" }}</em></small>
+  </p>
+
+  {% if user.is_customer %}
+  <form method="POST" action="{% url 'request_service' service.id %}" class="request-form">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="address">Your Address:</label>
+      <input type="text" name="address" id="address" required />
+    </div>
+    <div class="form-group">
+      <label for="hours">Number of Hours:</label>
+      <input type="number" name="hours" id="hours" min="1" required />
+    </div>
+    <button type="submit" class="btn-request">Request Service</button>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+
+{% block title %}Access Forbidden{% endblock %}
+
+{% block content %}
+<div class="error-page">
+  <h1 class="error-code">403</h1>
+  <h2 class="error-title">Access Forbidden</h2>
+  <p class="error-message">
+    You don’t have permission to view this page. If you think this is a mistake, please contact support.
+  </p>
+  <a href="/" class="btn-view">Go Back Home</a>
+</div>
+{% endblock %}

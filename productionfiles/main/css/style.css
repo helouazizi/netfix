@@ -1,0 +1,295 @@
+/* ================================
+   🎨 GLOBAL DESIGN SYSTEM VARIABLES
+   Project: Service Marketplace (Django)
+   Purpose: Centralized control for all design tokens
+   Author: [Your Name]
+=================================== */
+
+@import url('header.css');
+@import url('index.css');
+
+:root {
+    /* ----------------------------------
+     🌈 PRIMARY BRAND COLORS
+     Used for main interface elements
+  -----------------------------------*/
+    --color-primary: #052042;
+    /* Main brand color — buttons, links, active states */
+    --color-secondary: #27AE60;
+    /* Accent for success messages, confirmations */
+    --color-accent: #F2C94C;
+    /* Highlight color — for CTAs, hover effects, badges */
+
+    /* ----------------------------------
+     ⚙️ NEUTRAL COLORS
+     Backgrounds, borders, text, shadows
+  -----------------------------------*/
+    --color-bg: #F7F9FC;
+    /* Page background */
+    --color-surface: #FFFFFF;
+    /* Card or container background */
+    --color-border: #E0E0E0;
+    /* Borders and dividers */
+    --color-shadow: rgba(0, 0, 0, 0.08);
+    /* Card shadows */
+
+    /* ----------------------------------
+     🖋️ TEXT COLORS
+  -----------------------------------*/
+    --color-text-primary: #333333;
+    /* Default text (titles, paragraphs) */
+    --color-text-secondary: #828282;
+    /* Muted text (subtitles, timestamps, hints) */
+    --color-text-light: #FFFFFF;
+    /* On dark backgrounds (e.g., buttons) */
+
+    /* ----------------------------------
+     🚨 STATUS COLORS
+     For alerts, warnings, etc.
+  -----------------------------------*/
+    --color-error: #EB5757;
+    /* Validation errors, danger states */
+    --color-warning: #F2994A;
+    /* Warning messages */
+    --color-success: #27AE60;
+    /* Success notifications */
+
+    /* ----------------------------------
+     🔠 TYPOGRAPHY
+     Base font families and sizes
+  -----------------------------------*/
+    --font-primary: 'Poppins', sans-serif;
+    /* Headings, buttons, UI text */
+    --font-secondary: 'Open Sans', sans-serif;
+    /* Paragraphs, long text blocks */
+
+    --font-size-xxl: 2.5rem;
+    /* ~40px, used for main titles (Hero section) */
+    --font-size-xl: 2rem;
+    /* ~32px, page headers */
+    --font-size-lg: 1.5rem;
+    /* ~24px, section titles */
+    --font-size-md: 1rem;
+    /* ~16px, regular body text */
+    --font-size-sm: 0.875rem;
+    /* ~14px, small labels, metadata */
+    --font-size-xs: 0.75rem;
+    /* ~12px, captions, tooltips */
+
+    /* ----------------------------------
+     📏 SPACING SYSTEM
+     Consistent margins & paddings
+  -----------------------------------*/
+    --space-xxl: 4rem;
+    /* Page sections (e.g., hero top/bottom padding) */
+    --space-xl: 2rem;
+    /* Large container padding */
+    --space-lg: 1.5rem;
+    /* Card inner padding */
+    --space-md: 1rem;
+    /* Default gap between elements */
+    --space-sm: 0.5rem;
+    /* Small gap (form fields, icons) */
+    --space-xs: 0.25rem;
+    /* Tiny gap (badges, micro elements) */
+
+    /* ----------------------------------
+     🧱 BORDER & RADIUS
+  -----------------------------------*/
+    --radius-sm: 6px;
+    /* Buttons, small tags */
+    --radius-md: 10px;
+    /* Cards, inputs, modals */
+    --radius-lg: 16px;
+    /* Larger containers, hero sections */
+
+    --border-width: 1px;
+    /* Default border thickness */
+    --border-style: solid;
+
+    /* ----------------------------------
+     💨 EFFECTS & TRANSITIONS
+  -----------------------------------*/
+    --transition-fast: all 0.2s ease;
+    /* Button hover, small animations */
+    --transition-medium: all 0.3s ease;
+    /* Cards, modals */
+    --transition-slow: all 0.5s ease;
+    /* Hero animations, background fades */
+
+    /* ----------------------------------
+     🌗 SHADOW DEPTHS
+  -----------------------------------*/
+    --shadow-sm: 0 1px 3px var(--color-shadow);
+    --shadow-md: 0 2px 8px var(--color-shadow);
+    --shadow-lg: 0 4px 16px var(--color-shadow);
+}
+
+
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text-primary);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-md);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl) 0;
+}
+
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: var(--border-width) var(--border-style) var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-md);
+    transition: var(--transition-fast);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(47, 128, 237, 0.2);
+}
+
+
+h1 {
+    font-size: var(--font-size-xxl);
+    font-family: var(--font-primary);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: var(--font-size-lg);
+    font-weight: 500;
+}
+
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-fast);
+}
+
+.btn-primary:hover {
+    background-color: #1C6AE4;
+    /* slightly darker tone of primary */
+}
+
+
+/* 
+.card {
+    background: var(--color-surface);
+    border: var(--border-width) var(--border-style) var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-md);
+    transition: var(--transition-medium);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+} */
+
+
+
+.navbar {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-primary);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-md) var(--space-xl);
+}
+
+/* .nav-link {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    margin-right: var(--space-md);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--color-primary);
+} */
+
+
+
+
+
+.alert-success {
+    background-color: rgba(39, 174, 96, 0.1);
+    color: var(--color-success);
+    border-left: 4px solid var(--color-success);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+}
+
+.alert-error {
+    background-color: rgba(235, 87, 87, 0.1);
+    color: var(--color-error);
+    border-left: 4px solid var(--color-error);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+}
+
+
+
+
+
+
+.error-page {
+  text-align: center;
+  margin-top: var(--space-xl);
+  color: var(--color-text-primary);
+}
+
+.error-page h1 {
+  font-size: var(--font-size-xl);
+  color: var(--color-error);
+}
+
+.error-page p {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+}
+
+.error-page a {
+  margin-top: var(--space-md);
+  display: inline-block;
+}

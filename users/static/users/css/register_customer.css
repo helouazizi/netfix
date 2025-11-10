@@ -1,0 +1,228 @@
+:root {
+    /* ----------------------------------
+     🌈 PRIMARY BRAND COLORS
+     Used for main interface elements
+  -----------------------------------*/
+    --color-primary: #052042;
+    /* Main brand color — buttons, links, active states */
+    --color-secondary: #27AE60;
+    /* Accent for success messages, confirmations */
+    --color-accent: #F2C94C;
+    /* Highlight color — for CTAs, hover effects, badges */
+
+    /* ----------------------------------
+     ⚙️ NEUTRAL COLORS
+     Backgrounds, borders, text, shadows
+  -----------------------------------*/
+    --color-bg: #F7F9FC;
+    /* Page background */
+    --color-surface: #FFFFFF;
+    /* Card or container background */
+    --color-border: #E0E0E0;
+    /* Borders and dividers */
+    --color-shadow: rgba(0, 0, 0, 0.08);
+    /* Card shadows */
+
+    /* ----------------------------------
+     🖋️ TEXT COLORS
+  -----------------------------------*/
+    --color-text-primary: #333333;
+    /* Default text (titles, paragraphs) */
+    --color-text-secondary: #828282;
+    /* Muted text (subtitles, timestamps, hints) */
+    --color-text-light: #FFFFFF;
+    /* On dark backgrounds (e.g., buttons) */
+
+    /* ----------------------------------
+     🚨 STATUS COLORS
+     For alerts, warnings, etc.
+  -----------------------------------*/
+    --color-error: #EB5757;
+    /* Validation errors, danger states */
+    --color-warning: #F2994A;
+    /* Warning messages */
+    --color-success: #27AE60;
+    /* Success notifications */
+
+    /* ----------------------------------
+     🔠 TYPOGRAPHY
+     Base font families and sizes
+  -----------------------------------*/
+    --font-primary: 'Poppins', sans-serif;
+    /* Headings, buttons, UI text */
+    --font-secondary: 'Open Sans', sans-serif;
+    /* Paragraphs, long text blocks */
+
+    --font-size-xxl: 2.5rem;
+    /* ~40px, used for main titles (Hero section) */
+    --font-size-xl: 2rem;
+    /* ~32px, page headers */
+    --font-size-lg: 1.5rem;
+    /* ~24px, section titles */
+    --font-size-md: 1rem;
+    /* ~16px, regular body text */
+    --font-size-sm: 0.875rem;
+    /* ~14px, small labels, metadata */
+    --font-size-xs: 0.75rem;
+    /* ~12px, captions, tooltips */
+
+    /* ----------------------------------
+     📏 SPACING SYSTEM
+     Consistent margins & paddings
+  -----------------------------------*/
+    --space-xxl: 4rem;
+    /* Page sections (e.g., hero top/bottom padding) */
+    --space-xl: 2rem;
+    /* Large container padding */
+    --space-lg: 1.5rem;
+    /* Card inner padding */
+    --space-md: 1rem;
+    /* Default gap between elements */
+    --space-sm: 0.5rem;
+    /* Small gap (form fields, icons) */
+    --space-xs: 0.25rem;
+    /* Tiny gap (badges, micro elements) */
+
+    /* ----------------------------------
+     🧱 BORDER & RADIUS
+  -----------------------------------*/
+    --radius-sm: 6px;
+    /* Buttons, small tags */
+    --radius-md: 10px;
+    /* Cards, inputs, modals */
+    --radius-lg: 16px;
+    /* Larger containers, hero sections */
+
+    --border-width: 1px;
+    /* Default border thickness */
+    --border-style: solid;
+
+    /* ----------------------------------
+     💨 EFFECTS & TRANSITIONS
+  -----------------------------------*/
+    --transition-fast: all 0.2s ease;
+    /* Button hover, small animations */
+    --transition-medium: all 0.3s ease;
+    /* Cards, modals */
+    --transition-slow: all 0.5s ease;
+    /* Hero animations, background fades */
+
+    /* ----------------------------------
+     🌗 SHADOW DEPTHS
+  -----------------------------------*/
+    --shadow-sm: 0 1px 3px var(--color-shadow);
+    --shadow-md: 0 2px 8px var(--color-shadow);
+    --shadow-lg: 0 4px 16px var(--color-shadow);
+}
+
+.register-page {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  color: var(--color-text-primary);
+}
+
+.register-page h2 {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary); 
+  margin-bottom: var(--space-lg);
+  font-weight: 600;
+  text-align: center;
+}
+
+.register-page form {
+  background-color: var(--color-surface);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.register-page form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-page label {
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+/* .register-page input,
+.register-page select {
+  padding: var(--space-sm) var(--space-md);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-md);
+  font-family: var(--font-secondary);
+  background-color: var(--color-surface);
+  transition: var(--transition-fast);
+} */
+
+/* .register-page input:focus,
+.register-page select:focus {
+  outline: none;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 2px rgba(39, 174, 96, 0.15);
+} */
+
+.register-page button {
+  margin-top: var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-medium);
+}
+
+.register-page button:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.error {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li.success {
+  color: var(--color-success);
+}
+
+ul li.error {
+  color: var(--color-error);
+}
+
+@media (max-width: 600px) {
+  .register-page {
+    padding: var(--space-lg);
+  }
+
+  .register-page form {
+    padding: var(--space-lg);
+    width: 100%;
+  }
+}

@@ -1,0 +1,57 @@
+.services-container {
+  padding: var(--space-xl);
+  max-width: 700px;
+  margin: var(--space-xxl) auto;
+  background-color: var(--color-bg);
+}
+
+/* 🏷️ Heading */
+.services-container h2 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* Form Card */
+.services-container form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  background-color: var(--color-surface);
+  padding: var(--space-xl);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: var(--border-width) var(--border-style) var(--color-border);
+}
+
+.btn-create {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-family: var(--font-primary);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-medium);
+}
+
+.btn-create:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+/* 📦 Form container card */
+.form-card {
+  background-color: var(--color-surface);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+

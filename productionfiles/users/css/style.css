@@ -1,0 +1,88 @@
+@import url('register_company.css');
+@import url('register_costomer.css');
+
+.register-choice {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  color: var(--color-text-primary);
+}
+
+.register-choice h2 {
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-lg);
+  color: var(--color-primary);
+  text-align: center;
+  font-weight: 600;
+}
+
+.choice-cards {
+  display: flex;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  max-width: 800px;
+}
+
+.choice-card {
+  background-color: var(--color-surface);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  text-align: center;
+  padding: var(--space-lg);
+  width: 280px;
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: var(--transition-medium);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.choice-card i {
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  transition: var(--transition-fast);
+}
+
+.choice-card h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+}
+
+.choice-card p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.choice-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.choice-card:hover i {
+  color: var(--color-secondary);
+}
+
+@media (max-width: 600px) {
+  .choice-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .choice-card {
+    width: 90%;
+  }
+}

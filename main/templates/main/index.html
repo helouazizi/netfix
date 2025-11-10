@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %} {% block title %}Home | Netfix{% endblock %} 
+{% block content %}
+<section class="banner">
+    <div class="banner-image">
+        <h1>Welcome to <span>Netfix</span></h1>
+        <p>Your one-stop solution for all home and lifestyle services — from repairs to renovations, we’ve got you covered.</p>
+    </div>
+
+    <div class="user-prompt">
+        <h2>New here?</h2>
+        <p>Create your account today and start booking trusted professionals in minutes.</p>
+        
+    </div>
+</section>
+
+<section class="company-list">
+  {% if services %}
+  <!-- Section Title -->
+  <h3>
+    {% if serv_title %}
+      {{ serv_title }} Services
+    {% else %}
+      Most Requested Services
+    {% endif %}
+  </h3>
+
+  <ul class="service-grid">
+    {% for service in services %}
+    <li class="card">
+      <!-- Card Header: Service Name -->
+      <div class="card-header">
+        <h4 class="service-name">{{ service.name }}</h4>
+        <span class="service-date">{{ service.created_at|date:"F j, Y" }}</span>
+      </div>
+
+      <!-- Card Body: Description -->
+      <div class="card-body">
+        <p class="service-description">
+          {{ service.description|truncatechars:120 }}
+        </p>
+      </div>
+<!-- st -->
+      <!-- Card Footer: Company Info -->
+      <div class="card-footer">
+        <div class="company-info">
+          <span class="company-label">By </span>
+          <span class="company-name">{{ service.company.username }}</span>
+        </div>
+        <a href="{% url 'service_detail' service.pk %}"  class="btn-view">View Details</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>No services available at the moment.</p>
+  {% endif %}
+</section>
+
+{% endblock %}

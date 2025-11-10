@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'services/css/services.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="services-header">
+    <h1>Welcome to the Services Page</h1>
+    {% if request.user.is_authenticated and request.user.is_company %}
+    <a href="{% url 'create_service' %}" class="btn-create">+ Create New Service</a>
+    {% endif %}
+</div>
+
+<section class="services-list">
+    {% if services %}
+    <h3>
+        {% if serv_title %}
+        {{ serv_title }} Services
+        {% else %}
+        Most Requested Services
+        {% endif %}
+    </h3>
+
+    <ul class="service-grid">
+        {% for service in services %}
+        <li class="card">
+            <div class="card-header">
+                <h4 class="service-name">{{ service.name }}</h4>
+                <span class="text-muted">{{ service.created_at|date:"F j, Y" }}</span>
+            </div>
+
+            <div class="card-body">
+                <p class="service-description">
+                    {{ service.description|truncatechars:120 }}
+                </p>
+            </div>
+
+            <div class="card-footer">
+                <div class="company-info">
+                    <span class="text-muted">By {{ service.company.username }}</span>
+                </div>
+                <a href="{% url 'service_detail' service.pk %}" class="btn-view">View Details</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="no-services">No services available at the moment.</p>
+    {% endif %}
+</section>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+<!-- users/templates/users/register.html -->
+{% extends 'main/base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="register-choice">
+    <h2>Register As:</h2>
+    <div class="choice-cards">
+        <a href="{% url 'register_customer' %}" class="choice-card">
+            <i class="fas fa-user fa-3x"></i>
+            <h3>Customer</h3>
+            <p>Shop, browse, and manage your purchases easily.</p>
+        </a>
+        <a href="{% url 'register_company' %}" class="choice-card">
+            <i class="fas fa-building fa-3x"></i>
+            <h3>Company</h3>
+            <p>Register your company and start offering your services.</p>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="login-page">
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Email:</label>
+        {{ form.email }}<br>
+        <label>Password:</label>
+        {{ form.password }}<br>
+
+        <button type="submit">Login</button>
+    </form>
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="message-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

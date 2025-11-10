@@ -1,0 +1,108 @@
+
+
+/* 🏷️ Badges */
+.badge {
+  background-color: var(--color-secondary);
+  color: var(--color-text-light);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  margin-left: var(--space-sm);
+}
+
+/* 🔘 Buttons */
+.btn-view {
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-medium);
+  display: inline-block;
+}
+
+.btn-view:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+}
+
+/* 📦 Card Container */
+.service-card {
+  background-color: var(--color-surface);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  transition: var(--transition-medium);
+}
+
+.service-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* 🌐 Profile Container */
+.profile-container {
+  max-width: 900px;
+  margin: var(--space-xxl) auto;
+  padding: var(--space-xl);
+ 
+}
+
+/* 🧑‍💼 Profile Header */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  background-color: var(--color-surface);
+  padding: var(--space-xl);
+}
+
+.profile-header h1 {
+  color: var(--color-primary);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.profile-header p {
+  font-family: var(--font-secondary);
+  color: var(--color-text-secondary);
+}
+
+/* 🧾 Services Section */
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-md);
+  overflow-y: scroll;
+  max-height: 600px;
+}
+
+.service-card h3 {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.service-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-md);
+  margin-bottom: var(--space-sm);
+}
+
+/* ⚠️ Empty State */
+.no-services {
+  color: var(--color-text-secondary);
+  text-align: center;
+  font-style: italic;
+  margin-top: var(--space-md);
+}

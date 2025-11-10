@@ -1,0 +1,84 @@
+
+/* 🎯 Page Layout */
+.login-page {
+    font-family: var(--font-secondary);
+    background-color: var(--color-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+}
+
+/* 🧱 Login Card */
+.login-page form {
+    background-color: var(--color-surface);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    width: 100%;
+    max-width: 400px;
+    border: var(--border-width) var(--border-style) var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+/* 🏷️ Labels & Inputs */
+.login-page label {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-family: var(--font-primary);
+}
+
+
+
+
+
+/* 🔘 Button */
+.login-page button {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: var(--space-md);
+    font-size: var(--font-size-md);
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition-medium);
+}
+
+.login-page button:hover {
+    background-color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 🗨️ Messages */
+.message-error {
+    background-color: var(--color-error);
+    color: var(--color-text-light);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    margin-top: var(--space-md);
+}
+
+.message-success {
+    background-color: var(--color-success);
+    color: var(--color-text-light);
+    padding: var(--space-sm);
+    border-radius: var(--radius-sm);
+    text-align: center;
+    margin-top: var(--space-md);
+}
+
+/* 🧭 Heading */
+.login-page h2 {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-xl);
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    text-align: center;
+}

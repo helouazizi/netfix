@@ -1,0 +1,111 @@
+.register-page {
+  font-family: var(--font-primary);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  color: var(--color-text-primary);
+}
+
+.register-page h2 {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-lg);
+  font-weight: 600;
+  text-align: center;
+}
+
+.register-page form {
+  background-color: var(--color-surface);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.register-page form div {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-page label {
+  font-weight: 500;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-xs);
+}
+
+.register-page input,
+.register-page select {
+  padding: var(--space-sm) var(--space-md);
+  border: var(--border-width) var(--border-style) var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-md);
+  font-family: var(--font-secondary);
+  background-color: var(--color-surface);
+  transition: var(--transition-fast);
+}
+
+.register-page input:focus,
+.register-page select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(5, 32, 66, 0.1);
+}
+
+.register-page button {
+  margin-top: var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-light);
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition-medium);
+}
+
+.register-page button:hover {
+  background-color: var(--color-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.error {
+  color: var(--color-error);
+  font-size: var(--font-size-sm);
+  margin-top: var(--space-xs);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li.success {
+  color: var(--color-success);
+}
+
+ul li.error {
+  color: var(--color-error);
+}
+
+@media (max-width: 600px) {
+  .register-page {
+    padding: var(--space-lg);
+  }
+
+  .register-page form {
+    padding: var(--space-lg);
+    width: 100%;
+  }
+}

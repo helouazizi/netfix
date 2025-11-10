@@ -1,0 +1,279 @@
+:root {
+    /* ----------------------------------
+     🌈 PRIMARY BRAND COLORS
+     Used for main interface elements
+  -----------------------------------*/
+    --color-primary: #052042;
+    /* Main brand color — buttons, links, active states */
+    --color-secondary: #27AE60;
+    /* Accent for success messages, confirmations */
+    --color-accent: #F2C94C;
+    /* Highlight color — for CTAs, hover effects, badges */
+
+    /* ----------------------------------
+     ⚙️ NEUTRAL COLORS
+     Backgrounds, borders, text, shadows
+  -----------------------------------*/
+    --color-bg: #F7F9FC;
+    /* Page background */
+    --color-surface: #FFFFFF;
+    /* Card or container background */
+    --color-border: #E0E0E0;
+    /* Borders and dividers */
+    --color-shadow: rgba(0, 0, 0, 0.08);
+    /* Card shadows */
+
+    /* ----------------------------------
+     🖋️ TEXT COLORS
+  -----------------------------------*/
+    --color-text-primary: #333333;
+    /* Default text (titles, paragraphs) */
+    --color-text-secondary: #828282;
+    /* Muted text (subtitles, timestamps, hints) */
+    --color-text-light: #FFFFFF;
+    /* On dark backgrounds (e.g., buttons) */
+
+    /* ----------------------------------
+     🚨 STATUS COLORS
+     For alerts, warnings, etc.
+  -----------------------------------*/
+    --color-error: #EB5757;
+    /* Validation errors, danger states */
+    --color-warning: #F2994A;
+    /* Warning messages */
+    --color-success: #27AE60;
+    /* Success notifications */
+
+    /* ----------------------------------
+     🔠 TYPOGRAPHY
+     Base font families and sizes
+  -----------------------------------*/
+    --font-primary: 'Poppins', sans-serif;
+    /* Headings, buttons, UI text */
+    --font-secondary: 'Open Sans', sans-serif;
+    /* Paragraphs, long text blocks */
+
+    --font-size-xxl: 2.5rem;
+    /* ~40px, used for main titles (Hero section) */
+    --font-size-xl: 2rem;
+    /* ~32px, page headers */
+    --font-size-lg: 1.5rem;
+    /* ~24px, section titles */
+    --font-size-md: 1rem;
+    /* ~16px, regular body text */
+    --font-size-sm: 0.875rem;
+    /* ~14px, small labels, metadata */
+    --font-size-xs: 0.75rem;
+    /* ~12px, captions, tooltips */
+
+    /* ----------------------------------
+     📏 SPACING SYSTEM
+     Consistent margins & paddings
+  -----------------------------------*/
+    --space-xxl: 4rem;
+    /* Page sections (e.g., hero top/bottom padding) */
+    --space-xl: 2rem;
+    /* Large container padding */
+    --space-lg: 1.5rem;
+    /* Card inner padding */
+    --space-md: 1rem;
+    /* Default gap between elements */
+    --space-sm: 0.5rem;
+    /* Small gap (form fields, icons) */
+    --space-xs: 0.25rem;
+    /* Tiny gap (badges, micro elements) */
+
+    /* ----------------------------------
+     🧱 BORDER & RADIUS
+  -----------------------------------*/
+    --radius-sm: 6px;
+    /* Buttons, small tags */
+    --radius-md: 10px;
+    /* Cards, inputs, modals */
+    --radius-lg: 16px;
+    /* Larger containers, hero sections */
+
+    --border-width: 1px;
+    /* Default border thickness */
+    --border-style: solid;
+
+    /* ----------------------------------
+     💨 EFFECTS & TRANSITIONS
+  -----------------------------------*/
+    --transition-fast: all 0.2s ease;
+    /* Button hover, small animations */
+    --transition-medium: all 0.3s ease;
+    /* Cards, modals */
+    --transition-slow: all 0.5s ease;
+    /* Hero animations, background fades */
+
+    /* ----------------------------------
+     🌗 SHADOW DEPTHS
+  -----------------------------------*/
+    --shadow-sm: 0 1px 3px var(--color-shadow);
+    --shadow-md: 0 2px 8px var(--color-shadow);
+    --shadow-lg: 0 4px 16px var(--color-shadow);
+}
+
+/* ==============================
+   🖼️ BANNER / HERO SECTION
+============================== */
+.banner {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-text-light);
+    padding: var(--space-xxl) var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    margin: var(--space-xl) auto;
+}
+
+/* Left side (image + text) */
+.banner-image {
+    flex: 1;
+    padding-right: var(--space-lg);
+}
+
+.banner-image h1 {
+    font-size: var(--font-size-xxl);
+    font-family: var(--font-primary);
+    margin-bottom: var(--space-md);
+}
+
+.banner-image h1 span {
+    color: var(--color-accent);
+}
+
+.banner-image p {
+    font-size: var(--font-size-md);
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+
+
+/* Right side (user prompt) */
+.user-prompt {
+    flex: 1;
+    background: linear-gradient(135deg, var(--color-surface), var(--color-primary));
+    color: var(--color-text-primary);
+    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+}
+
+.user-prompt h2 {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.user-prompt p {
+    font-family: var(--font-secondary);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-light);
+    margin-bottom: var(--space-md);
+}
+
+.company-list {
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.company-list h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+.service-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+}
+
+.card {
+    background: var(--card-bg, #fff);
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.service-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.service-date {
+    font-size: 0.9rem;
+    color: var(--text-muted, #777);
+}
+
+.service-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary, #444);
+    margin-bottom: 1.2rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.company-info {
+    font-size: 0.9rem;
+    color: var(--text-muted, #555);
+}
+
+.btn-view {
+    background: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+
+.btn-view:hover {
+    background: var(--color-text-secondary);
+}
+
+
+/* 768 */
+
+
+@media (max-width: 768px) {
+    .user-prompt {
+        display: none;
+    }
+    .company-list {
+        width: 95%;
+        margin: 1rem auto;
+    }
+}
