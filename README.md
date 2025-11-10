@@ -45,7 +45,6 @@ The system calculates total service costs automatically (`hours × price_per_hou
 - Django Forms for input validation  
 - Django Messages framework for success/error notifications  
 - Django Authentication system for user login and registration  
-- Python Decimal module for accurate price calculations  
 
 ---
 
