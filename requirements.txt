@@ -1,0 +1,6 @@
+asgiref==3.10.0
+Django==5.2.8
+django-browser-reload==1.21.0
+django-environ==0.12.0
+sqlparse==0.5.3
+whitenoise==6.11.0
