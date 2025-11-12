@@ -68,7 +68,6 @@ venv\Scripts\activate     # Windows
 
 3. **Install dependencies**
 
-@note  requirements.txt removed
 ```bash
 pip install -r requirements.txt
 ```
@@ -86,7 +85,14 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-6. **Run the development server**
+6. **Add .env file**
+
+```bash
+echo 'ENVIREMENT="production"' > requirements.txt
+echo 'SECRET_KEY="your server key"' > requirements.txt
+```
+
+7. **Run the development server**
 
 ```bash
 python manage.py runserver
