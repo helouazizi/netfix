@@ -88,8 +88,7 @@ python manage.py createsuperuser
 6. **Add .env file**
 
 ```bash
-echo 'ENVIREMENT="production"' > netfix/.env
-echo 'SECRET_KEY="your server key"' > netfix/.env
+echo 'ENVIREMENT="production" \nSECRET_KEY="your server key"' > netfix/.env 
 ```
 
 7. **Run the development server**
