@@ -49,7 +49,7 @@ The system calculates total service costs automatically (`hours × price_per_hou
 ---
 
 
-## Setup Instructions
+## Setup Instructions  
 
 1. **Clone the repository**
 
@@ -88,8 +88,8 @@ python manage.py createsuperuser
 6. **Add .env file**
 
 ```bash
-echo 'ENVIREMENT="production"' > requirements.txt
-echo 'SECRET_KEY="your server key"' > requirements.txt
+echo 'ENVIREMENT="production"' > netfix/.env
+echo 'SECRET_KEY="your server key"' > netfix/.env
 ```
 
 7. **Run the development server**
@@ -103,6 +103,22 @@ Access the site at `http://127.0.0.1:8000/`.
 ---
 
 
+## docker 
+1. **Add .env file**
+
+```bash
+echo 'ENVIREMENT="production" \nSECRET_KEY="your server key"' > netfix/.env 
+```
+2. **build an image**
+```bash
+docker build -t netfix .
+```
+
+3. **Run it with .env file**
+```bash
+docker run --env-file netfix/.env -p 8000:8000 netfix
+```
+
 ## License
 
 Educational project for Django learning purposes.
@@ -115,3 +131,4 @@ Educational project for Django learning purposes.
 - **Name**: Hassan El ouazizi
 - **Email**: ouazizi2code@gmail.com  
 - **GitHub**: [https://github.com/helouazizi](https://github.com/helouazizi)
+
