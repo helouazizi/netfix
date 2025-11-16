@@ -34,8 +34,9 @@ The system calculates total service costs automatically (`hours × price_per_hou
 
 - **Backend**: Python 3, Django 3.1.14  
 - **Frontend**: HTML5, CSS3, Django Templates  
-- **Database**: SQLite3 (default, can be switched to PostgreSQL)  
-- **Version Control**: Git  
+- **Database**: MYSQL 
+- **Version Control**: Git 
+- **Containaersation** : docker , docker-compose
 
 ---
 
@@ -58,43 +59,43 @@ git clone https://github.com/helouazizi/netfix.git
 cd netfix
 ```
 
-2. **Create a virtual environment**
+2. **Make sure Docker installed**
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate  # Linux / Mac
-venv\Scripts\activate     # Windows
+docker --version 
 ```
 
-3. **Install dependencies**
+
+
+
+3. **Add .env file in the root project and add this variables**
 
 ```bash
-pip install -r requirements.txt
+# Database
+MYSQL_ROOT_PASSWORD=rootpass
+MYSQL_DATABASE=netfix_database
+MYSQL_USER=your_user
+MYSQL_PASSWORD=your_pass
+MYSQL_HOST=netfix_db
+MYSQL_PORT=3306
+
+# Django
+DJANGO_SECRET_KEY=your_secret_key_here
+DJANGO_DEBUG=True
+DJANGO_ALLOWED_HOSTS=*
+DJANGO_ENVIREMENT=production
 ```
 
-4. **Apply migrations**
+4. **Run it with docker**
 
 ```bash
-python manage.py makemigrations
-python manage.py migrate
+docker-compose up --build
 ```
 
-5. **Create a superuser**
+5. **Apply migrations**
 
 ```bash
-python manage.py createsuperuser
-```
-
-6. **Add .env file**
-
-```bash
-echo 'ENVIREMENT="production" \nSECRET_KEY="your server key"' > netfix/.env 
-```
-
-7. **Run the development server**
-
-```bash
-python manage.py runserver
+docker exec -it netfix_app python manage.py migrate
 ```
 
 Access the site at `http://127.0.0.1:8000/`.
@@ -102,21 +103,7 @@ Access the site at `http://127.0.0.1:8000/`.
 ---
 
 
-## docker 
-1. **Add .env file**
 
-```bash
-echo 'ENVIREMENT="production" \nSECRET_KEY="your server key"' > netfix/.env 
-```
-2. **build an image**
-```bash
-docker build -t netfix .
-```
-
-3. **Run it with .env file**
-```bash
-docker run --env-file netfix/.env -p 8000:8000 netfix
-```
 
 ## License
 
