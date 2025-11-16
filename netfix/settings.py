@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 env = environ.Env()
-env.read_env()
+env.read_env(BASE_DIR / ".env")
 
 
 ENVIREMENT = env('ENVIREMENT')
@@ -104,12 +104,8 @@ WSGI_APPLICATION = 'netfix.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('MYSQL_DATABASE'),
-        'USER': env('MYSQL_USER'),
-        'PASSWORD': env('MYSQL_PASSWORD'),
-        'HOST': env('MYSQL_HOST', default='db'),
-        'PORT': env('MYSQL_PORT', default=3306),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

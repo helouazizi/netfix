@@ -1,10 +1,7 @@
-# Use the official Python runtime image
 FROM python:3.13
 
-# Create the app directory
 RUN mkdir /app
 
-# Set the working directory inside the container
 WORKDIR /app
 
 # Prevent Python from writing pyc files to disk
