@@ -95,6 +95,7 @@ docker-compose up --build
 5. **Apply migrations**
 
 ```bash
+docker exec -it netfix_app python manage.py makemigrations
 docker exec -it netfix_app python manage.py migrate
 ```
 
